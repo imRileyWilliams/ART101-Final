@@ -1,26 +1,58 @@
+
+/* Basic page setup */
 :root {
     --nav-height: 70px;
+    --blue: #1a4176;
+    --light-blue: #dff4f7;
+    --pink: #f7dce8;
+    --white: #ffffff;
 }
-/*navigation bar*/
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    color: var(--blue);
+    background: var(--light-blue);
+}
+
+/* Main screen */
+#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: opacity 0.6s;
+}
+
+/* Background GIF */
+#background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url("../images/bg_opening_screen.gif") center / cover no-repeat;
+}
+
+/* Navigation bar */
 .navigation {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: var(--nav-height);
-    display: flex;
     box-sizing: border-box;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
-    border-bottom: 2px solid rgba(26, 65, 118, 0.5);
-    background: rgb(151, 172, 186);
+    padding: 15px 35px;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(26, 65, 118, 0.3);
+    box-shadow: 0 3px 12px rgba(26, 65, 118, 0.12);
     z-index: 100;
 }
 
 #team-name {
     margin: 0;
     font-size: 1.8rem;
+    letter-spacing: 2px;
 }
 
 .nav-tabs {
@@ -29,30 +61,251 @@
 }
 
 .nav-tab {
-    color: inherit;           
-    font-family:'Courier New', Courier, monospace;
-    border: none;
-    padding: 4px 0;
+    color: var(--blue);
+    font-family: 'Courier New', monospace;
+    padding: 8px 4px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    transition: color 0.2s, transform 0.2s;
 }
 
 .nav-tab:hover,
 .nav-tab.selected {
+    color: #c45d8a;
     text-decoration: underline;
+    transform: translateY(-2px);
 }
 
-/* EDIT AND PASTE INTO CODE FOR ID */
-#page {
-    display: none;
+/* Main opening screen */
+#opening {
+    position: relative;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: var(--nav-height);
+    box-sizing: border-box;
+}
+
+#center-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    z-index: 2;
+}
+
+/* Game title */
+#title-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(380px, 60vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 4px solid rgba(26, 65, 118, 0.6);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+#title-circle h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    color: var(--blue);
+    text-shadow: 2px 2px 0 var(--pink);
+}
+
+/* Character sprites */
+.sprite {
+    position: absolute;
+    bottom: 0;
+    height: 80%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.sprite:hover {
+    transform: scale(1.04);
+}
+
+.sprite img {
+    display: block;
+    width: auto;
+    height: 100%;
+}
+
+/* Character positions */
+#sprite1 {
+    left: 5%;
+}
+
+#sprite2 {
+    right: 5%;
+}
+
+/* Start button */
+#start-button {
+    font-family: Georgia, serif;
+    font-size: 1.5rem;
+    padding: 12px 55px;
+    color: white;
+    background: #c45d8a;
+    border: 2px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(26, 65, 118, 0.25);
+    transition: transform 0.2s, background 0.2s;
+}
+
+#start-button:hover {
+    background: var(--blue);
+    transform: scale(1.06);
+}
+
+/* Character bio hover boxes */
+.info1,
+.info2 {
+    position: absolute;
+    top: 15%;
+    width: 220px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--blue);
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(26, 65, 118, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 5;
+}
+
+.info1 h3,
+.info2 h3 {
+    margin: 0 0 5px;
+}
+
+.info1 p,
+.info2 p {
+    margin: 0;
+}
+
+#sprite1 .info1 {
+    left: 100%;
+    margin-left: 10px;
+}
+
+#sprite2 .info2 {
+    right: 100%;
+    margin-right: 10px;
+}
+
+.sprite.active .info1,
+.sprite.active .info2 {
+    opacity: 1;
+}
+
+/* Hide opening screen after Start */
+#page.inactive {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Visual novel screen */
+#novel {
     position: fixed;
     top: var(--nav-height);
-    z-index: 50;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
+    background: linear-gradient(#1a2e4d, #101a30);
+    color: white;
+}
+
+#novel[hidden] {
+    display: none;
+}
+
+#dialogue-box {
+    width: min(800px, 90%);
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--blue);
+    border: 3px solid #d9a6bd;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+#continue-button {
+    display: block;
+    margin-left: auto;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    background: #c45d8a;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#continue-button:hover {
+    background: var(--blue);
+}
+
+/* About / How to Play / Team pages */
+.page {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
     padding: 40px;
-    background: #e3feff;
-    color: #000000;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--blue);
     overflow-y: auto;
 }
+
+.page.open {
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .navigation {
+        padding: 10px 15px;
+    }
+
+    #team-name {
+        font-size: 1.2rem;
+    }
+
+    .nav-tabs {
+        gap: 12px;
+    }
+
+    .nav-tab {
+        font-size: 0.85rem;
+    }
+
+    .sprite {
+        height: 55%;
+    }
+
+    .info1,
+    .info2 {
+        width: 150px;
+        font-size: 0.85rem;
+    }
+}
+

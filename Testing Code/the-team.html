@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href= "the-team.css" rel="stylesheet" type="text/css">
+
+    <link href="the-team.css" rel="stylesheet" type="text/css">
+
+    <title>Love Triangle</title>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script src="the-team.js" defer></script>
+    
 </head>
 
 <body>
+
+    <!-- Navigation bar -->
     <div class="navigation">
         <h2 id="team-name">Love Triangle</h2>
+
         <div class="nav-tabs">
             <div class="nav-tab" id="about">About</div>
             <div class="nav-tab" id="how-to-play">How to Play</div>
@@ -17,10 +26,74 @@
         </div>
     </div>
 
+    <!-- Opening homescreen -->
+    <div id="page">
 
-    <div class ="page" id="the-team-page">
+        <div id="background"></div>
+
+        <div id="opening">
+
+            <!-- HTML character -->
+            <div class="sprite" id="sprite1">
+                <div class="info1">
+                    <h3>HTML</h3>
+                    <p>Sweet, thoughtful, and a little insecure. The student body president who always puts others first.</p>
+                </div>
+
+                <img src="../images/htmldefault.png" alt="HTML">
+            </div>
+
+            <!-- Center title and start button -->
+            <div id="center-screen">
+
+                <div id="title-circle">
+                    <h1>Love<br>Triangle</h1>
+                </div>
+
+                <button id="start-button">Start</button>
+
+            </div>
+
+            <!-- CSS character -->
+            <div class="sprite" id="sprite2">
+                <div class="info2">
+                    <h3>CSS</h3>
+                    <p>A chill art student with a bit of a tsundere attitude. He acts like he doesn't care, but he does.</p>
+                </div>
+
+                <img src="../images/cssdefault.png" alt="CSS">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Visual novel screen -->
+    <div id="novel" hidden>
+
+        <div id="dialogue-box">
+            <p id="dialogue-text"></p>
+
+            <button id="continue-button">Continue</button>
+        </div>
+
+    </div>
+
+    <!-- About page -->
+    <div class="page" id="about-page">
+        <h2>About</h2>
+        <p>Welcome to Love Triangle! A college romance visual novel where your choices can lead to love or friendship.</p>
+    </div>
+
+    <!-- How to Play page -->
+    <div class="page" id="how-to-play-page">
+        <h2>How to Play</h2>
+        <p>Click Start to begin the story. Read the dialogue and make choices to get to know each character. Your choices can affect your relationships!</p>
+    </div>
+
+    <!-- Team page -->
+    <div class="page" id="the-team-page">
         <h2>The Team</h2>
-        <p> Information about the web designers and developers</p>
+        <p>Meet the people behind Love Triangle!</p>
     </div>
 
 </body>
