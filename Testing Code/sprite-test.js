@@ -41,7 +41,7 @@ const story = [
 
     // 3. First choices
     {
-        name: "HTML",
+        name: "You",
         image: "htmlhappy.png",
         text: "How do you respond?",
         options: [
@@ -68,7 +68,7 @@ const story = [
 
     // 5. Second choices
     {
-        name: "HTML",
+        name: "You",
         image: "htmllooking.png",
         text: "What do you say?",
         options: [
@@ -96,7 +96,7 @@ const story = [
     // 7. Third choices
     {
         
-        name: "HTML",
+        name: "You",
         image: "htmllooking.png",
         text: "What do you say?",
         options: [
