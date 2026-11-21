@@ -1,0 +1,191 @@
+/* starting ig */
+body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    color: rgb(#c0e4e8)
+}
+
+#page {
+    flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+}
+
+/*background gif */
+#background {
+    position: fixed;
+    inset:0;
+    z-index: -1;
+    background: url("../images/bg_opening_screen.gif") center /  cover no-repeat;
+}
+
+/*navigation bar*/
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 2px solid rgba(26, 65, 118, 0.5);
+    background: rgb(151, 172, 186);
+}
+
+#team-name {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-tab {
+    color: inherit;           /* use the same blue as the rest of the page */
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.nav-tab:hover {
+    text-decoration: underline;
+}
+
+/*title circle thing*/
+#opening {
+    position: relative;       /* sprites are positioned inside this box */
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#center-screen{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+#title-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(380px, 60vw);
+    aspect-ratio: 1;      
+    border-radius: 50%;
+    border: 3px solid rgba(26, 65, 118, 0.6);
+    background: rgb(255, 255, 255);
+}
+
+#title-circle h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/*sprites*/
+.sprite {
+    position: absolute;       
+     bottom: 0;            
+    height: 100%;         
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+.sprite img {
+    display: block;
+    width: auto;
+    height: 100%;
+    object-fit: contain; 
+}
+
+.sprite.dragging {
+    cursor: grabbing;
+}
+
+/* Starting positions */
+#sprite1 {
+    left: 3%;
+}
+
+#sprite2 {
+    right: 3%;
+}
+
+/*start button*/
+#start-zone {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 40px 0;
+}
+
+#start-button {
+    font-family: inherit;
+    font-size: 1.6rem;
+    padding: 10px 50px;
+    color: rgb(26, 65, 118);
+    background: rgba(255, 255, 255, 0.85);
+    border: 3px solid rgba(26, 65, 118, 0.7);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background: rgb(26, 65, 118);
+    color: #ffffff;
+}
+
+/*hover boxes*/
+.info {
+    position: absolute;
+    bottom: 100%;         
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(26, 65, 118, 0.6);
+    border-radius: 8px;
+    opacity: 0;             
+    pointer-events: none;   
+    transition: opacity 0.2s;
+    z-index: 5;
+}
+
+.info-box h3 {
+    margin: 0 0 4px 0;
+}
+
+.info-box p {
+    margin: 0;
+}
+
+.sprite:hover .info-box,
+.sprite:focus-visible .info-box {
+    opacity: 1;
+}
+
+.sprite.dragging .info-box {
+    opacity: 0;
+}
+
+#page.inactive {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s;
+}
+
+#novel {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0d1b2e;
+    color: #ffffff;
+}
+
+#novel[hidden] {
+    display: none;
+}
