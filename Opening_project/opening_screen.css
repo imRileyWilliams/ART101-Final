@@ -86,22 +86,16 @@ body {
 /*sprites*/
 .sprite {
     position: absolute;       
-     bottom: 0;            
+    bottom: 0;            
     height: 100%;         
-    cursor: grab;
-    touch-action: none;
-    user-select: none;
+    cursor: pointer;
 }
 
 .sprite img {
     display: block;
     width: auto;
     height: 100%;
-    object-fit: contain; 
-}
-
-.sprite.dragging {
-    cursor: grabbing;
+    cursor: pointer;
 }
 
 /* Starting positions */
@@ -139,35 +133,41 @@ body {
 /*hover boxes*/
 .info {
     position: absolute;
-    bottom: 100%;         
-    left: 50%;
-    transform: translateX(-50%);
+    top: 15%;
     width: 240px;
     padding: 10px 14px;
     background: rgba(255, 255, 255, 0.95);
     border: 2px solid rgba(26, 65, 118, 0.6);
     border-radius: 8px;
-    opacity: 0;             
-    pointer-events: none;   
+    opacity: 0;              
+    pointer-events: none;    
     transition: opacity 0.2s;
     z-index: 5;
 }
 
-.info-box h3 {
+.info1 h3,
+.info2 h3 {
     margin: 0 0 4px 0;
 }
 
-.info-box p {
+.info1 p,
+.info2 p {
     margin: 0;
 }
 
-.sprite:hover .info-box,
-.sprite:focus-visible .info-box {
-    opacity: 1;
+#sprite1 .info1 {
+    left: 100%;
+    margin-left: 10px;
 }
 
-.sprite.dragging .info-box {
-    opacity: 0;
+#sprite2 .info2 {
+    right: 100%;
+    margin-right: 10px;
+}
+
+.sprite.active .info1,
+.sprite.active .info2 {
+    opacity: 1;
 }
 
 #page.inactive {
