@@ -1,0 +1,58 @@
+:root {
+    --nav-height: 70px;
+}
+/*navigation bar*/
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid rgba(26, 65, 118, 0.5);
+    background: rgb(151, 172, 186);
+    z-index: 100;
+}
+
+#team-name {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-tab {
+    color: inherit;           
+    font-family:'Courier New', Courier, monospace;
+    border: none;
+    padding: 4px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.nav-tab:hover,
+.nav-tab.selected {
+    text-decoration: underline;
+}
+
+/* EDIT AND PASTE INTO CODE FOR ID */
+#page {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    z-index: 50;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px;
+    background: #e3feff;
+    color: #000000;
+    overflow-y: auto;
+}

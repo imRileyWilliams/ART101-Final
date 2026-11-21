@@ -11,6 +11,10 @@ body {
     display: flex;
 }
 
+:root {
+    --nav-height: 70px;
+}
+
 /*background gif */
 #background {
     position: fixed;
@@ -21,12 +25,19 @@ body {
 
 /*navigation bar*/
 .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
     display: flex;
+    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
+    padding: 20px 30px;
     border-bottom: 2px solid rgba(26, 65, 118, 0.5);
     background: rgb(151, 172, 186);
+    z-index: 100;
 }
 
 #team-name {
@@ -40,18 +51,22 @@ body {
 }
 
 .nav-tab {
-    color: inherit;           /* use the same blue as the rest of the page */
-    text-decoration: none;
+    color: inherit;           
+    font-family:'Courier New', Courier, monospace;
+    border: none;
+    padding: 4px 0;
+    cursor: pointer;
     font-size: 1.2rem;
 }
 
-.nav-tab:hover {
+.nav-tab:hover,
+.nav-tab.selected {
     text-decoration: underline;
 }
 
 /*title circle thing*/
 #opening {
-    position: relative;       /* sprites are positioned inside this box */
+    position: relative;       
     display: flex;
     flex: 1;
     justify-content: center;
@@ -87,7 +102,7 @@ body {
 .sprite {
     position: absolute;       
     bottom: 0;            
-    height: 100%;         
+    height: 80%;         
     cursor: pointer;
 }
 
@@ -100,11 +115,11 @@ body {
 
 /* Starting positions */
 #sprite1 {
-    left: 3%;
+    left: 5%;
 }
 
 #sprite2 {
-    right: 3%;
+    right: 5%;
 }
 
 /*start button*/
@@ -131,7 +146,8 @@ body {
 }
 
 /*hover boxes*/
-.info {
+.info1,
+.info2 {
     position: absolute;
     top: 15%;
     width: 240px;
@@ -178,7 +194,11 @@ body {
 
 #novel {
     position: fixed;
-    inset: 0;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -186,6 +206,28 @@ body {
     color: #ffffff;
 }
 
+/* Pop up pages of About How to Play and About the Team */
+
+.page {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    z-index: 50;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px;
+    background: #e3feff;
+    color: #000000;
+    overflow-y: auto;
+}
+
+.page.open {
+    display: block;
+}
+
+
+/* keep at the bottom */
 #novel[hidden] {
     display: none;
 }
