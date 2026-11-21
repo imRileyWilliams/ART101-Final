@@ -1,0 +1,134 @@
+/* Whole page */
+body {
+    margin: 0;
+    padding: 24px;
+    font-family: Georgia, serif;
+    background: #17212b;
+    color: #1a4176;
+    text-align: center;
+}
+
+/* Game title */
+h1 {
+    margin: 0 auto 18px;
+    font-size: clamp(26px, 4vw, 40px);
+    color: #f7f0e7;
+}
+
+/* Visual novel layout */
+#game {
+    width: min(100%, 1100px);
+    margin: 0 auto;
+    overflow: hidden;
+    background: #f8f3ec;
+    border: 3px solid #b8d5e8;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Background and character */
+#scene {
+    position: relative;
+    height: min(72vh, 720px);
+    min-height: 420px;
+    overflow: hidden;
+    background: url("../images/mixerbg.png") center 55% / cover no-repeat;
+}
+
+#character-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 94%;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateX(-50%);
+}
+
+/* Dialogue panel */
+#dialogue-box {
+    position: absolute;
+    right: 3%;
+    bottom: 3%;
+    left: 3%;
+    min-height: 105px;
+    padding: 14px 20px;
+    background: rgba(255, 252, 247, 0.94);
+    border: 2px solid #b8d5e8;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+#character-name {
+    margin: 0 0 6px;
+    font-size: 22px;
+}
+
+#dialogue-text {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* Choice buttons */
+#choices {
+    padding: 10px 20px 0;
+}
+
+button {
+    display: block;
+    width: min(100%, 700px);
+    margin: 10px auto;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: Georgia, serif;
+    color: white;
+    background: #527da8;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover,
+button:focus-visible {
+    background: #c45d8a;
+    outline: 2px solid #1a4176;
+    outline-offset: 2px;
+}
+
+/* Affection counter */
+#affection {
+    margin: 8px 0 16px;
+    font-size: 14px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 14px;
+    }
+
+    #scene {
+        height: 68vh;
+        min-height: 360px;
+    }
+
+    #character-image {
+        height: 82%;
+    }
+
+    #dialogue-box {
+        right: 2%;
+        bottom: 2%;
+        left: 2%;
+        padding: 11px 13px;
+    }
+
+    #dialogue-text {
+        font-size: 15px;
+    }
+}
+
