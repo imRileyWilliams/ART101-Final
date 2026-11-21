@@ -1,18 +1,18 @@
 // HTML affection points
 let htmlPoints = 0;
 
-// Find HTML elements
+// HTML character sprite/dialogue stuff
 const characterName = document.getElementById("character-name");
 const characterImage = document.getElementById("character-image");
 const dialogueText = document.getElementById("dialogue-text");
 const choices = document.getElementById("choices");
 const affectionText = document.getElementById("affection");
 
-// story starting track thing
+
 let currentScene = 0;
 
 
-// STORY DIALOGUE
+// story dialogue and choices :3
 const story = [
 
     // 0. Opening narration
@@ -31,7 +31,7 @@ const story = [
         next: "Continue"
     },
 
-    // 2. First conversation
+    // 2. First convo
     {
         name: "HTML",
         image: "htmltalk.png",
@@ -58,7 +58,7 @@ const story = [
         ]
     },
 
-    // 4. Second conversation
+    // 4. Second convo
     {
         name: "HTML",
         image: "htmlconcern.png",
@@ -85,7 +85,7 @@ const story = [
         ]
     },
 
-    // 6. Third conversation 
+    // 6. Third convo 
     {
         name: "HTML",
         image: "htmltalk.png",
@@ -113,7 +113,7 @@ const story = [
         ]
     },
 
-    // 7. Choose romance or friendship
+    // 8. Choose romance or friendship
     {
         name: "HTML",
         image: "htmlshy.png",
@@ -130,10 +130,10 @@ const story = [
             }
         ]
     }
-]; //closes the final scene 
+];
 
 
-// DISPLAY THE CURRENT SCENE
+// display function thingy
 function showScene() {
 
     let scene = story[currentScene];
@@ -142,14 +142,14 @@ function showScene() {
     characterImage.src = "../images/" + scene.image;
     dialogueText.textContent = scene.text;
 
-    // Clear out any old buttons
+    
     choices.innerHTML = "";
 
     // Display affection points
     affectionText.textContent = "HTML Affection: " + htmlPoints;
 
 
-    // If there are choices, create choice buttons
+    // Buttons of choices for player yaaaa
     if (scene.options) {
 
         scene.options.forEach(function(option) {
@@ -160,17 +160,17 @@ function showScene() {
 
             button.addEventListener("click", function() {
 
-                // Add or subtract affection
+                // Add/subtract points
                 if (option.points !== undefined) {
                     htmlPoints += option.points;
                 }
 
-                // Change character expression
+                // Change character expression :>
                 if (option.image) {
                     characterImage.src = "../images/" + option.image;
                 }
 
-                // Check if player picked an ending
+                // Ending/next scene
                 if (option.ending) {
 
                     showEnding(option.ending);
@@ -190,7 +190,7 @@ function showScene() {
 
     } else {
 
-        // Create Continue button
+        //Continue button
         let button = document.createElement("button");
 
         button.textContent = scene.next;
