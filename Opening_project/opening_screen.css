@@ -231,3 +231,38 @@ body {
 #novel[hidden] {
     display: none;
 }
+
+/* team container */
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.team-member {
+    width: 220px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f3f3f3;
+    border-radius: 15px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    margin-top: 15px;
+}
+
+.team-member p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
