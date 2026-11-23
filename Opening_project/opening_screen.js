@@ -187,6 +187,7 @@ function showIntro() {
 // the chara options to choose from hehe I lwk would pick html :3
 function showCharacterPicker() {
 
+    novel.classList.add("character-selection");
     sceneHeading.textContent = "The Mixer";
     speakerName.textContent = "Narration";
     affectionText.textContent = "";
@@ -197,6 +198,7 @@ function showCharacterPicker() {
         "Who will you walk over to?";
 
     choices.innerHTML = "";
+    choices.classList.add("character-picker");
 
     // Character choices
     let characters = [
@@ -251,6 +253,9 @@ function showCharacterPicker() {
 
 // Character route scenes
 function showCharacterRoute(character) {
+
+    novel.classList.remove("character-selection");
+    choices.classList.remove("character-picker");
 
     if (character === "html") {
         htmlPoints = 0;
