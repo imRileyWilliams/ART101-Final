@@ -50,7 +50,7 @@ navTabs.forEach(function (tab){
 });
 
 
-// The next scene after you open the game lol
+// The next scene after you open the game lol please work pleaseeee
 const sceneHeading = document.getElementById("scene-heading");
 const characterImage = document.getElementById("character-image");
 const speakerName = document.getElementById("speaker-name");
@@ -69,6 +69,7 @@ const characterNames = {
     js: "JavaScript"
 };
 
+// btw note to whoever is reading this: if this works fine, just copy and paste this code for the rest of the other charas
 const htmlStory = [
     {
         name: "HTML",
@@ -170,7 +171,7 @@ startButton.addEventListener("click", function() {
     showIntro();
 });
 
-// Show one intro scene before the player chooses a character.
+// Show one intro scene before the player chooses a character
 function showIntro() {
     sceneHeading.textContent = "Friday Night - The Mixer";
     characterImage.hidden = true;
@@ -234,7 +235,7 @@ function showCharacterPicker() {
         button.appendChild(image);
         button.appendChild(name);
 
-        // Disable characters already met
+        // when you meet chara already, disable the button since u done with their chud ahh 
         if (charactersMet.includes(character.id)) {
             button.disabled = true;
             name.textContent = character.name + " (Met)";
@@ -269,6 +270,7 @@ function showCharacterRoute(character) {
     characterImage.hidden = false;
     affectionText.textContent = "";
 
+    // Okay I'll save this part for either Finn or Riley to work on. I think like 3-4 convos is enough, just refer back the doc I sent yall
     // CSS route
     if (character === "css") {
 
@@ -384,7 +386,7 @@ function finishCharacterRoute(character) {
 }
 
 
-// final scenes after player meets all three charas 
+// final scenes after player meets all three charas :p 
 function showFinalScene() {
 
     sceneHeading.textContent = "Friday Night - The Mixer";
