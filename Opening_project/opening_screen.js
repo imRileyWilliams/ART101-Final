@@ -175,6 +175,7 @@ function showIntro() {
     sceneHeading.textContent = "Friday Night - The Mixer";
     characterImage.hidden = true;
     speakerName.textContent = "Narration";
+    affectionText.textContent = "";
     dialogueText.textContent =
         "Your friend Ilia invited you to a college mixer to help you move on from your breakup. After you arrive, Ilia points out three people they think you should meet.";
 
@@ -188,6 +189,7 @@ function showCharacterPicker() {
 
     sceneHeading.textContent = "The Mixer";
     speakerName.textContent = "Narration";
+    affectionText.textContent = "";
 
     characterImage.hidden = true;
 
@@ -260,6 +262,7 @@ function showCharacterRoute(character) {
     choices.innerHTML = "";
 
     characterImage.hidden = false;
+    affectionText.textContent = "";
 
     // CSS route
     if (character === "css") {
