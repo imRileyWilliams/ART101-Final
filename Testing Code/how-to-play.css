@@ -308,3 +308,17 @@ body {
     }
 }
 
+
+#title {
+    display: flex;
+    justify-content: center;
+     Background-color:#85fbff;
+    max-width: 210px;
+    padding: 20px;
+    text-align: center;
+    color:#063e3e;
+    border-radius: 6px;
+    border: solid 6px;    
+    
+
+}

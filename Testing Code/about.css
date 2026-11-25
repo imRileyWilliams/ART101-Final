@@ -43,16 +43,51 @@
 }
 
 /* EDIT AND PASTE INTO CODE FOR ID */
-#page {
-    display: none;
-    position: fixed;
-    top: var(--nav-height);
-    z-index: 50;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 40px;
-    background: #e3feff;
-    color: #000000;
-    overflow-y: auto;
+
+body {
+    padding-top: var(--nav-height);
+    /*background image*/
+    background-image: url(images/about-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    min-height: 100vh;
+    min-width: 100%;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - var(--nav-height));
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 20px;
+
+}
+p {
+
+    padding: 5px;
+    background:#85fbff;
+    border: solid rgba(26, 65, 118, 0.7) ;
+    border-radius: 6px;
+    max-width: 100vh;
+   font-size: larger;
+   color: #063e3e;
+    
+}
+#abouth2 {
+    Background-color:#85fbff;
+    max-width: 210px;
+    padding: 20px;
+    text-align: center;
+    color:#063e3e;
+    border-radius: 6px;
+    border: solid 6px;    
+    
+}
+#title {
+    display: flex;
+    justify-content: center;
+
 }
